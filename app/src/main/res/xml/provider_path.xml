@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <root-path name="app_root_path" path="/"/>
+    <files-path name="app_files_path" path="commonlib_app_folder/camera_crop_cache/"/>
+</paths>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sr.superhelperx">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:label="@string/app_name">
+        <activity android:name="com.sr.superhelperx.activity.AppKtActivity"/>
+        <activity
+            android:name="com.sr.superhelperx.permission.PermissionsActivity"
+            android:theme="@style/Translucent" /> <!-- <activity android:name="com.zcx.helper.printer.PrinterActivity" android:theme="@style/Translucent"/> -->
+        <activity android:name="com.sr.superhelperx.view.web.AppWebActivity" />
+        <activity android:name="com.sr.superhelperx.view.web.AppWebV4Activity" />
+
+        <service android:name="com.sr.superhelperx.service.CountDownService" /> <!-- <service android:name="com.zcx.helper.printer.PrinterService"/> -->
+        <service android:name="com.sr.superhelperx.service.UpdataService" />
+
+        <activity android:name="com.sr.superhelperx.imagepicker.activity.ImagePickerActivity" />
+        <activity android:name="com.sr.superhelperx.imagepicker.activity.ImagePreActivity" /> <!-- Android 7.0 文件共享配置，必须配置 -->
+        <provider
+            android:name="com.sr.superhelperx.imagepicker.provider.ImagePickerProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/image_picker" />
+        </provider>
+    </application>
+
+</manifest>
