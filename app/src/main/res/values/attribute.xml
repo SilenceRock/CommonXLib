@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RoundAngleImageView">
+        <attr name="circleImg" format="boolean" />
+        <attr name="roundWidth" format="dimension" />
+        <attr name="roundHeight" format="dimension" />
+        <attr name="roundLeftTop" format="boolean" />
+        <attr name="roundLeftBottom" format="boolean" />
+        <attr name="roundRightTop" format="boolean" />
+        <attr name="roundRightBottom" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomCardView">
+        <!--        左上圆角大小-->
+        <attr name="cv_topLeftRadius" format="dimension" />
+        <!--        右上圆角大小-->
+        <attr name="cv_topRightRadius" format="dimension" />
+        <!--        右下圆角大小-->
+        <attr name="cv_bottomRightRadius" format="dimension" />
+        <!--        左下圆角大小-->
+        <attr name="cv_bottomLeftRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomImageView">
+        <!-- 开启焦点模式-->
+        <attr name="iv_openFocusMode" format="boolean"/>
+        <!-- 开启父布局焦点模式-->
+        <attr name="iv_openParentFocusMode" format="boolean"/>
+        <!-- 父布局焦点层级-->
+        <attr name="iv_parentFocusLevel" format="integer"/>
+        <!-- 圆角矩形非焦点背景图片/颜色 -->
+        <attr name="iv_backgroundNormal" format="reference|color"/>
+        <!-- 圆角矩形焦点背景图片 -->
+        <attr name="iv_backgroundFocused" format="reference|color"/>
+        <!-- 圆角矩形非焦点前景图片/颜色 -->
+        <attr name="iv_srcNormal" format="reference|color"/>
+        <!-- 圆角矩形焦点前景图片/颜色 -->
+        <attr name="iv_srcFocused" format="reference|color"/>
+
+        <!-- 选中时缩放倍数-->
+        <attr name="iv_scaleDouble" format="float"/>
+        <!-- 选中时缩放时间-->
+        <attr name="iv_scaleDuration" format="integer"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="iv_scaleWidth" format="float"/>
+        <!-- 选中时缩放高度-->
+        <attr name="iv_scaleHeight" format="float"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerRadius" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="iv_cornerRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerLeftTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerLeftBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerRightTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerRightBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerLeftTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerLeftBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerRightTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_cornerRightBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="iv_strokeWidth" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="iv_strokeWidthFocused" format="dimension"/>
+        <!-- 圆角边框颜色-->
+        <attr name="iv_strokeColor" format="color"/>
+        <!-- 圆角边框选中颜色-->
+        <attr name="iv_strokeColorFocused" format="color"/>
+        <!-- 圆角弧度是高度一半-->
+        <attr name="iv_isRadiusHalfHeight" format="boolean"/>
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="iv_isWidthHeightEqual" format="boolean"/>
+        <!-- 拦截左键 -->
+        <attr name="iv_interceptLeftKey" format="boolean"/>
+        <!-- 拦截右键 -->
+        <attr name="iv_interceptRightKey" format="boolean"/>
+        <!-- 拦截上键 -->
+        <attr name="iv_interceptUpKey" format="boolean"/>
+        <!-- 拦截下键 -->
+        <attr name="iv_interceptDownKey" format="boolean"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="CustomTextView">
+        <!-- 开启焦点模式-->
+        <attr name="tv_openFocusMode" format="boolean"/>
+        <!-- 开启父布局焦点模式-->
+        <attr name="tv_openParentFocusMode" format="boolean"/>
+        <!-- 父布局焦点层级-->
+        <attr name="tv_parentFocusLevel" format="integer"/>
+        <!-- 选中时缩放倍数-->
+        <attr name="tv_scaleDouble" format="float"/>
+        <!-- 选中时缩放时间-->
+        <attr name="tv_scaleDuration" format="integer"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="tv_scaleWidth" format="float"/>
+        <!-- 选中时缩放高度-->
+        <attr name="tv_scaleHeight" format="float"/>
+        <!-- 圆角矩形背景色 -->
+        <attr name="tv_backgroundColor" format="color"/>
+        <!-- 圆角矩形焦点背景色 -->
+        <attr name="tv_backgroundColorFocused" format="color"/>
+        <!-- 圆角矩形非焦点背景图片 -->
+        <attr name="tv_backgroundNormal" format="reference"/>
+        <!-- 圆角矩形焦点背景图片 -->
+        <attr name="tv_backgroundFocused" format="reference"/>
+        <!-- 文字默认颜色 -->
+        <attr name="tv_textColor" format="color"/>
+        <!-- 文字选中颜色 -->
+        <attr name="tv_textColorFocused" format="color"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerRadius" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="tv_cornerRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerLeftTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerLeftBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerRightTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerRightBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerLeftTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerLeftBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerRightTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_cornerRightBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="tv_strokeWidth" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="tv_strokeWidthFocused" format="dimension"/>
+        <!-- 圆角边框颜色-->
+        <attr name="tv_strokeColor" format="color"/>
+        <!-- 圆角边框选中颜色-->
+        <attr name="tv_strokeColorFocused" format="color"/>
+        <!-- 圆角弧度是高度一半-->
+        <attr name="tv_isRadiusHalfHeight" format="boolean"/>
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="tv_isWidthHeightEqual" format="boolean"/>
+        <!-- 图标是否跟随文字居中-->
+        <attr name="tv_isDrawableCenter" format="boolean"/>
+        <!-- 拦截左键 -->
+        <attr name="tv_interceptLeftKey" format="boolean"/>
+        <!-- 拦截右键 -->
+        <attr name="tv_interceptRightKey" format="boolean"/>
+        <!-- 拦截上键 -->
+        <attr name="tv_interceptUpKey" format="boolean"/>
+        <!-- 拦截下键 -->
+        <attr name="tv_interceptDownKey" format="boolean"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="CustomLinearLayout">
+        <!-- 开启焦点模式-->
+        <attr name="ll_openFocusMode" format="boolean"/>
+        <!-- 获取重新排列 -->
+        <attr name="ll_bringToFront" format="boolean"/>
+        <!-- 获取焦点重新排列 -->
+        <attr name="ll_focusBringToFront" format="boolean"/>
+        <!-- 选中时缩放倍数-->
+        <attr name="ll_scaleDouble" format="float"/>
+        <!-- 选中时缩放时间-->
+        <attr name="ll_scaleDuration" format="integer"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="ll_scaleWidth" format="integer"/>
+        <!-- 选中时缩放高度-->
+        <attr name="ll_scaleHeight" format="integer"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="ll_normalWidth" format="integer"/>
+        <!-- 选中时缩放高度-->
+        <attr name="ll_normalHeight" format="integer"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="ll_cornerRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerLeftTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerLeftBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerRightTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerRightBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="ll_strokeWidthFocused" format="dimension"/>
+        <!-- 圆角边框选中颜色-->
+        <attr name="ll_strokeColorFocused" format="color"/>
+        <!-- 圆角矩形焦点背景色 -->
+        <attr name="ll_backgroundColorFocused" format="color"/>
+        <!-- 圆角矩形非焦点背景图片 -->
+        <attr name="ll_backgroundNormal" format="reference"/>
+        <!-- 圆角矩形焦点背景图片 -->
+        <attr name="ll_backgroundFocused" format="reference"/>
+        <!-- 圆角矩形背景色 -->
+        <attr name="ll_backgroundColor" format="color"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerLeftTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerLeftBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerRightTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_cornerRightBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="ll_strokeWidth" format="dimension"/>
+        <!-- 圆角边框颜色-->
+        <attr name="ll_strokeColor" format="color"/>
+        <!-- 圆角弧度是高度一半-->
+        <attr name="ll_isRadiusHalfHeight" format="boolean"/>
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="ll_isWidthHeightEqual" format="boolean"/>
+        <!-- 拦截左键 -->
+        <attr name="ll_interceptLeftKey" format="boolean"/>
+        <!-- 拦截右键 -->
+        <attr name="ll_interceptRightKey" format="boolean"/>
+        <!-- 拦截上键 -->
+        <attr name="ll_interceptUpKey" format="boolean"/>
+        <!-- 拦截下键 -->
+        <attr name="ll_interceptDownKey" format="boolean"/>
+        <!-- 是否裁剪子类 -->
+        <attr name="ll_clipChildren" format="boolean"/>
+        <!-- 是否裁剪Padding -->
+        <attr name="ll_clipToPadding" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomRelativeLayout">
+        <!-- 开启焦点模式-->
+        <attr name="rl_openFocusMode" format="boolean"/>
+        <!-- 获取重新排列 -->
+        <attr name="rl_bringToFront" format="boolean"/>
+        <!-- 获取焦点重新排列 -->
+        <attr name="rl_focusBringToFront" format="boolean"/>
+        <!-- 选中时缩放倍数-->
+        <attr name="rl_scaleDouble" format="float"/>
+        <!-- 选中时缩放时间-->
+        <attr name="rl_scaleDuration" format="integer"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="rl_scaleWidth" format="float"/>
+        <!-- 选中时缩放高度-->
+        <attr name="rl_scaleHeight" format="float"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="rl_cornerRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerLeftTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerLeftBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerRightTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerRightBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="rl_strokeWidthFocused" format="dimension"/>
+        <!-- 圆角边框选中颜色-->
+        <attr name="rl_strokeColorFocused" format="color"/>
+        <!-- 圆角矩形焦点背景色 -->
+        <attr name="rl_backgroundColorFocused" format="color"/>
+        <!-- 圆角矩形背景色 -->
+        <attr name="rl_backgroundColor" format="color"/>
+        <!-- 圆角矩形非焦点背景图片 -->
+        <attr name="rl_backgroundNormal" format="reference"/>
+        <!-- 圆角矩形焦点背景图片 -->
+        <attr name="rl_backgroundFocused" format="reference"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerLeftTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerLeftBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerRightTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_cornerRightBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="rl_strokeWidth" format="dimension"/>
+        <!-- 圆角边框颜色-->
+        <attr name="rl_strokeColor" format="color"/>
+        <!-- 圆角弧度是高度一半-->
+        <attr name="rl_isRadiusHalfHeight" format="boolean"/>
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="rl_isWidthHeightEqual" format="boolean"/>
+        <!-- 拦截左键 -->
+        <attr name="rl_interceptLeftKey" format="boolean"/>
+        <!-- 拦截右键 -->
+        <attr name="rl_interceptRightKey" format="boolean"/>
+        <!-- 拦截上键 -->
+        <attr name="rl_interceptUpKey" format="boolean"/>
+        <!-- 拦截下键 -->
+        <attr name="rl_interceptDownKey" format="boolean"/>
+        <!-- 是否裁剪子类 -->
+        <attr name="rl_clipChildren" format="boolean"/>
+        <!-- 是否裁剪Padding -->
+        <attr name="rl_clipToPadding" format="boolean"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="rl_normalWidth" format="integer"/>
+        <!-- 选中时缩放高度-->
+        <attr name="rl_normalHeight" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomFrameLayout">
+        <!-- 开启焦点模式-->
+        <attr name="fl_openFocusMode" format="boolean"/>
+        <!-- 获取重新排列 -->
+        <attr name="fl_bringToFront" format="boolean"/>
+        <!-- 获取焦点重新排列 -->
+        <attr name="fl_focusBringToFront" format="boolean"/>
+        <!-- 选中时缩放倍数-->
+        <attr name="fl_scaleDouble" format="float"/>
+        <!-- 选中时缩放时间-->
+        <attr name="fl_scaleDuration" format="integer"/>
+        <!-- 选中时缩放宽度-->
+        <attr name="fl_scaleWidth" format="float"/>
+        <!-- 选中时缩放高度-->
+        <attr name="fl_scaleHeight" format="float"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="fl_cornerRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerLeftTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerLeftBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerRightTopRadiusFocused" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerRightBottomRadiusFocused" format="dimension"/>
+        <!-- 圆角选中弧度,单位dp-->
+        <attr name="fl_strokeWidthFocused" format="dimension"/>
+        <!-- 圆角边框选中颜色-->
+        <attr name="fl_strokeColorFocused" format="color"/>
+        <!-- 圆角矩形焦点背景色 -->
+        <attr name="fl_backgroundColorFocused" format="color"/>
+        <!-- 圆角矩形背景色 -->
+        <attr name="fl_backgroundColor" format="color"/>
+        <!-- 圆角矩形非焦点背景图片 -->
+        <attr name="fl_backgroundNormal" format="reference"/>
+        <!-- 圆角矩形焦点背景图片 -->
+        <attr name="fl_backgroundFocused" format="reference"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerLeftTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerLeftBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerRightTopRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_cornerRightBottomRadius" format="dimension"/>
+        <!-- 圆角弧度,单位dp-->
+        <attr name="fl_strokeWidth" format="dimension"/>
+        <!-- 圆角边框颜色-->
+        <attr name="fl_strokeColor" format="color"/>
+        <!-- 圆角弧度是高度一半-->
+        <attr name="fl_isRadiusHalfHeight" format="boolean"/>
+        <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="fl_isWidthHeightEqual" format="boolean"/>
+        <!-- 拦截左键 -->
+        <attr name="fl_interceptLeftKey" format="boolean"/>
+        <!-- 拦截右键 -->
+        <attr name="fl_interceptRightKey" format="boolean"/>
+        <!-- 拦截上键 -->
+        <attr name="fl_interceptUpKey" format="boolean"/>
+        <!-- 拦截下键 -->
+        <attr name="fl_interceptDownKey" format="boolean"/>
+    </declare-styleable>
+
+</resources>

@@ -35,4 +35,8 @@ public interface AppInterface {
     public interface OnDelayedEnd {
         void onEnd();
     }
+
+    public interface OnHandlerCallBack {
+        void onCallBack(int what);
+    }
 }

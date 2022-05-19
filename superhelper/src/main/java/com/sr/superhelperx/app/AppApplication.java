@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
+import android.os.SystemClock;
 
 import com.sr.superhelperx.http.Http;
 import com.sr.superhelperx.init.hh;
@@ -157,13 +158,19 @@ public class AppApplication {
     }
 
     public void finishActivity() {
-        this.finishActivity((Activity)this.a.lastElement());
+        this.finishActivity((Activity)this.a.lastElement(),true);
     }
 
     public void finishActivity(Activity activity) {
+        finishActivity(activity,false);
+    }
+
+    public void finishActivity(Activity activity, boolean isFinish) {
         try {
             this.a.remove(activity);
-            activity.finish();
+            if (isFinish){
+                activity.finish();
+            }
         } catch (Exception var3) {
             ;
         }
@@ -181,7 +188,7 @@ public class AppApplication {
         for(int i = 0; i < this.a.size(); ++i) {
             Activity y = (Activity)this.a.get(i);
             if(y.getClass().equals(cls)) {
-                this.finishActivity(y);
+                this.finishActivity(y,true);
             }
         }
 
@@ -189,7 +196,6 @@ public class AppApplication {
 
     public void finishAllActivity() {
         int i = 0;
-
         for(int size = this.a.size(); i < size; ++i) {
             if(null != this.a.get(i)) {
                 ((Activity)this.a.get(i)).finish();
@@ -235,6 +241,16 @@ public class AppApplication {
 
     public int getActivityStackSize() {
         return this.a.size();
+    }
+
+    public void beforeExit(){
+        try {
+            this.finishAllActivity();
+            this.b.clear();
+            p.e().c();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void appExit() {
@@ -385,4 +401,6 @@ public class AppApplication {
     public interface OnAppRootCallBack {
         void onResult(boolean isSuccess);
     }
+
+
 }

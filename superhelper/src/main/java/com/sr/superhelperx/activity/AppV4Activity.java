@@ -32,6 +32,7 @@ import com.sr.superhelperx.receiver.AppReceiver;
 import com.sr.superhelperx.scale.ScaleScreenHelperFactory;
 import com.sr.superhelperx.util.UtilAsyView;
 import com.sr.superhelperx.util.UtilClear;
+import com.sr.superhelperx.util.UtilLog;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -71,7 +72,7 @@ public class AppV4Activity extends FragmentActivity implements AppInterface {
         try {
             this.getAppApplication().addActivity(this);
         } catch (Exception var3) {
-            ;
+            var3.printStackTrace();
         }
 
         /**

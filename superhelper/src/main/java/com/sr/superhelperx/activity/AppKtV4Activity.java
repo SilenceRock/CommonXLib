@@ -32,6 +32,7 @@ import com.sr.superhelperx.receiver.AppReceiver;
 import com.sr.superhelperx.scale.ScaleScreenHelperFactory;
 import com.sr.superhelperx.util.UtilAsyView;
 import com.sr.superhelperx.util.UtilClear;
+import com.sr.superhelperx.util.UtilLog;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +44,10 @@ import java.util.Map;
  * In LongCaiHaErBin
  */
 
-public class AppKtV4Activity extends FragmentActivity implements AppInterface {
+public class AppKtV4Activity extends FragmentActivity implements AppInterface{
+
+    private final String TAG = getClass().getSimpleName();
+
     protected Map<Class<? extends AppReceiver>, BroadcastReceiver> m = new HashMap();
     protected Context context;
     private AppCycle y;
@@ -57,6 +61,7 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         getWindow().getDecorView().setFitsSystemWindows(true);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         try {
             this.y.onCreate(savedInstanceState);
         } catch (Exception var4) {
@@ -94,6 +99,7 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
             ;
         }
 
+        UtilLog.e(TAG,"onStart");
     }
 
     public AppApplication getAppApplication() throws Exception {
@@ -102,13 +108,12 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
 
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-
         try {
             ScaleScreenHelperFactory.getInstance().loadViewGroup((ViewGroup) BoundViewHelper.boundView(this, this.getWindow().getDecorView()));
         } catch (Exception var3) {
-            ;
+            var3.printStackTrace();
         }
-
+        UtilLog.e(TAG,"setContentView");
     }
 
     public void setContentViewAsy(int layoutResID) {
@@ -159,6 +164,8 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         }
 
         Http.getInstance().logSkip(this.getClass().toString() + "->show: %s", this.getClass(), "kt");
+
+        UtilLog.e(TAG,"onResume");
     }
 
     protected void onRestart() {
@@ -169,10 +176,11 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         } catch (Exception var2) {
             ;
         }
-
+        UtilLog.e(TAG,"onRestart");
     }
 
     public void onConfigurationChanged(Configuration newConfig) {
+        UtilLog.e(TAG,"onConfigurationChanged fontScale = " + newConfig.fontScale);
         super.onConfigurationChanged(newConfig);
         ScaleScreenHelperFactory.reset();
     }
@@ -188,9 +196,9 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         try {
             this.y.onPause();
         } catch (Exception var2) {
-            ;
+            var2.printStackTrace();
         }
-
+        UtilLog.e(TAG,"onPause");
     }
 
     protected void onStop() {
@@ -199,13 +207,14 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         try {
             this.y.onStop();
         } catch (Exception var2) {
-            ;
+            var2.printStackTrace();
         }
-
+        UtilLog.e(TAG,"onStop");
     }
 
     protected void onDestroy() {
         try {
+            handler.removeCallbacksAndMessages(null);
             AppApplication a = this.getAppApplication();
             a.removeAppCallBack(this.getClass());
             a.finishActivity(this);
@@ -218,7 +227,7 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
 
             this.m.clear();
         } catch (Exception var5) {
-            ;
+            var5.printStackTrace();
         }
 
         UtilClear.clear(this);
@@ -228,9 +237,8 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         try {
             this.y.onDestroy();
         } catch (Exception var4) {
-            ;
+            var4.printStackTrace();
         }
-
     }
 
     public void addReceiver(AppReceiver receiver) {
@@ -277,18 +285,60 @@ public class AppKtV4Activity extends FragmentActivity implements AppInterface {
         return a;
     }
 
+    private final int WHAT_DEFAULT = 0;
     @SuppressLint("HandlerLeak")
-    public void delayed(long delayMillis, final OnDelayedEnd onDelayedEnd) {
-        (new Handler() {
-            public void handleMessage(Message msg) {
-                try {
-                    if(AppApplication.INSTANCE.currentActivity() == AppKtV4Activity.this) {
-                        onDelayedEnd.onEnd();
-                    }
-                } catch (Exception var3) {
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if (msg.obj != null){
+                if (msg.obj == onHandlerCallBack){
+                    onHandlerCallBack.onCallBack(msg.what);
+                }else if (msg.obj instanceof OnDelayedEnd){
+                    OnDelayedEnd onDelayedEnd = (OnDelayedEnd) msg.obj;
+                    onDelayedEnd.onEnd();
                 }
+            }else {
+                UtilLog.e(TAG,"Please init setHandlerListener(OnHandlerCallBack onHandlerCallBack)");
             }
-        }).sendEmptyMessageDelayed(0, delayMillis);
+        }
+    };
+
+    private OnHandlerCallBack onHandlerCallBack;
+    public void setHandlerListener(OnHandlerCallBack onHandlerCallBack){
+        this.onHandlerCallBack = onHandlerCallBack;
+    }
+
+    @Override
+    public void delayed(long delayMillis, OnDelayedEnd onDelayedEnd) {
+        try {
+            if (!isFinishing()){
+                handler.sendMessageDelayed(Message.obtain(handler,WHAT_DEFAULT,onDelayedEnd),delayMillis);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void delayedHandler(int what){
+        delayedHandler(what,0L);
+    }
+
+    public void delayedHandler(long delayMillis) {
+        delayedHandler(WHAT_DEFAULT,delayMillis);
+    }
+
+    public void delayedHandler(int what, long delayMillis){
+        try {
+            handler.sendMessageDelayed(Message.obtain(handler,what,onHandlerCallBack),delayMillis);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void removeHandlerByWhat(int what){
+        if (handler.hasMessages(what)){
+            handler.removeMessages(what);
+        }
     }
 
     public void permission(String[] permission, PermissionsResultAction permissionsResultAction) {
