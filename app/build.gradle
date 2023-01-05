@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         release {
-            storeFile file('E:\\AndroidProject\\SilenceRock\\CommonXLib\\app\\commonxlib.jks')
+            storeFile file('E:/AndroidProject/SilenceRock/CommonXLib/app/commonxlib.jks')
             storePassword 'commonxlib'
             keyAlias = 'commonxlib'
             keyPassword 'commonxlib'
